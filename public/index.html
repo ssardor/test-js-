@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green API Client</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #response {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        #response table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background-color: white;
+        }
+        
+        #response tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        #response td {
+            padding: 12px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        #response td:first-child {
+            font-weight: bold;
+            background-color: #f8f9fa;
+            border-right: 1px solid #dee2e6;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Green API Client</h1>
+        
+        <label for="idInstance">idInstance:</label>
+        <input type="text" id="idInstance" placeholder="Enter idInstance"><br><br>
+
+        <label for="apiTokenInstance">API Token Instance:</label>
+        <input type="text" id="apiTokenInstance" placeholder="Enter API Token Instance"><br><br>
+
+        <button id="getSettings">Get Settings</button>
+        <button id="getStateInstance">Get State Instance</button>
+        <button id="sendMessage">Send Message</button>
+        <button id="sendFileByUrl">Send File</button><br><br>
+
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" placeholder="Phone number without symbol +"><br><br>
+        
+        <label for="message">Message:</label>
+        <textarea id="message" placeholder="Enter your message"></textarea><br><br>
+
+        <label for="fileUrl">File URL:</label>
+        <input type="text" id="fileUrl" placeholder="Enter file URL"><br><br>
+
+        <div id="response"></div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function updateResponse(data) {
+            document.getElementById('response').innerText = JSON.stringify(data, null, 2);
+        }
+
+        
+        updateResponse({ message: "Запрос выполнен успешно", status: "OK" });
+    </script>
+</body>
+</html>
